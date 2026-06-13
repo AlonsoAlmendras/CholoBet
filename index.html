@@ -118,36 +118,30 @@ label.selbl{font-family:'Bebas Neue',sans-serif;letter-spacing:.08em;font-size:1
   .tab{font-size:14px;padding:6px 11px}
 }
 
-/* ===== admin / filtros ===== */
-input[type=text],input[type=number],input[type=password]{font-family:'EB Garamond',serif;font-size:16px;padding:7px 10px;border:1.5px solid var(--ink);background:var(--paper);color:var(--ink)}
-.tab.tab-admin{background:var(--ink);color:var(--paper);opacity:.5}
-.tab.tab-admin:hover,.tab.tab-admin.active{opacity:1}
-.fase-filter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
-.fase-btn{font-family:'Bebas Neue',sans-serif;letter-spacing:.1em;font-size:15px;background:var(--paper2);border:1.5px solid var(--ink);color:var(--ink);padding:6px 14px;cursor:pointer;line-height:1.1}
-.fase-btn:hover{background:#EBDCBE}
-.fase-btn.active{background:var(--ink);color:var(--paper)}
-.apanel{display:none;animation:fade .2s}
-.apanel.active{display:block}
-.adm-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line)}
-.adm-row:last-child{border-bottom:none}
-.adm-team{flex:1;font-size:16px}
-.adm-team-v{text-align:right}
-.adm-dash{color:var(--ink-soft)}
-input.adm-score{width:48px;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:19px;padding:4px 2px}
-.adm-pred-cell{display:inline-flex;align-items:center;gap:2px;justify-content:center}
-.adm-pred-sep{color:var(--ink-soft)}
-input.adm-mini{width:34px;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:15px;padding:3px 1px}
-.adm-fifa{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:8px 0}
-.adm-lbl{font-family:'Bebas Neue',sans-serif;letter-spacing:.05em;font-size:13px;color:var(--ink-soft);margin-bottom:3px}
-input.adm-text{width:100%}
-.clas-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:10px;margin-top:8px}
-.clas-group{border:1px solid var(--line);background:var(--paper2);padding:8px 10px}
-.clas-gtitle{font-family:'Bebas Neue',sans-serif;letter-spacing:.06em;font-size:14px;color:var(--gold);border-bottom:1px solid var(--line);margin-bottom:5px;padding-bottom:2px}
-.clas-item{display:block;font-size:14px;cursor:pointer;padding:2px 0}
-.clas-item input{margin-right:5px}
-.adm-add-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 10px}
-.adm-add-grid .full{grid-column:1/-1}
-@media (max-width:620px){input.adm-mini{width:30px}.adm-team{font-size:14px}}
+/* ===== sincronizado: login, editor, contraseñas, indicadores ===== */
+.banner{margin:10px 0;padding:10px 14px;border:1.5px solid var(--ink);font-size:14px;background:var(--paper2)}
+.banner.err{border-color:var(--red);background:rgba(155,45,32,.08);color:var(--red)}
+.chip.ans{background:rgba(63,90,58,.16);border-color:var(--green);color:var(--green);font-weight:700}
+.chip.miss{background:var(--paper2);color:var(--ink-soft)}
+.btn{font-family:'Bebas Neue',sans-serif;letter-spacing:.08em;font-size:16px;background:var(--ink);color:var(--paper);border:1.5px solid var(--ink);padding:8px 16px;cursor:pointer;margin:8px 0}
+.btn:hover{background:var(--red);border-color:var(--red)}
+.btn:disabled{background:var(--paper2);color:var(--ink-soft);border-color:var(--line);cursor:not-allowed}
+.btn.ghost{background:transparent;color:var(--ink);padding:5px 12px;font-size:14px;margin:0}
+.btn.ghost:hover{background:var(--paper2);color:var(--ink)}
+.frow{display:flex;align-items:center;gap:8px;margin:8px 0;flex-wrap:wrap}
+.loginbox{max-width:440px}
+input[type=password],input[type=text],input[type=datetime-local],input[type=number],textarea{font-family:'EB Garamond',serif;font-size:16px;padding:7px 10px;border:1.5px solid var(--ink);background:var(--paper);color:var(--ink)}
+.editrow{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px dotted var(--line);flex-wrap:wrap}
+.editrow .team{min-width:78px}
+.editrow .team.v{text-align:left}
+input.sc{width:50px;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:18px;padding:4px}
+input.sc:disabled{background:var(--paper2);color:var(--ink-soft)}
+.editrow .vs{color:var(--ink-soft)}
+.editrow .lockmark{font-size:12px;color:var(--ink-soft);margin-left:auto;font-style:italic}
+.fbtn{font-family:'Bebas Neue',sans-serif;letter-spacing:.06em;font-size:14px;background:var(--paper2);border:1.5px solid var(--ink);color:var(--ink);padding:5px 12px;cursor:pointer;margin-right:6px}
+.fbtn.on{background:var(--ink);color:var(--paper)}
+.tab-admin{border-color:var(--red)}
+.tab-admin.active{background:var(--red);border-color:var(--red)}
 </style>
 </head>
 <body>
@@ -168,8 +162,11 @@ input.adm-text{width:100%}
     <button class="tab" data-tab="user">Por Usuario</button>
     <button class="tab" data-tab="resultados">Resultados</button>
     <button class="tab" data-tab="reglas">Reglas</button>
+    <button class="tab" data-tab="mis">Mis Pronósticos</button>
+    <button class="tab" data-tab="pass">Contraseñas</button>
     <button class="tab tab-admin" data-tab="admin">🔒 Admin</button>
   </nav>
+  <div id="banner" class="banner" style="display:none"></div>
 
   <!-- ===== TABLA ===== -->
   <section class="panel active" id="panel-tabla">
@@ -322,68 +319,28 @@ input.adm-text{width:100%}
     <p class="muted">Empate de 2 en el 1° → $62.000 + $34.000 = $96.000, cada uno $48.000. Empate de 3 en el 2° → $34.000 + $17.000 + $0 = $51.000, cada uno $17.000.</p>
   </section>
 
+  <!-- ===== MIS PRONÓSTICOS ===== -->
+  <section class="panel" id="panel-mis">
+    <div class="sec-title">Mis Pronósticos <span class="orn"></span></div>
+    <div class="lede">Entra con tu nombre y carga tus marcadores. Se cierran solos al empezar cada partido.</div>
+    <div id="misBody"></div>
+  </section>
+
+  <!-- ===== CONTRASEÑAS ===== -->
+  <section class="panel" id="panel-pass">
+    <div class="sec-title">Contraseñas <span class="orn"></span></div>
+    <div class="lede">Se puede cambiar la clave de cualquiera. Cada cambio queda registrado a la vista de todos.</div>
+    <div id="passForm"></div>
+    <h3 class="subhead">Registro de cambios de clave</h3>
+    <div class="scroll"><table class="tbl" id="pwlogTbl"></table></div>
+    <p class="muted">Aquí solo se ve QUIÉN y CUÁNDO. La clave nunca se muestra. Si alguien cambió la tuya, lo vas a ver aquí.</p>
+  </section>
 
   <!-- ===== ADMIN ===== -->
   <section class="panel" id="panel-admin">
-    <div class="sec-title">Centro de Control <span class="orn"></span></div>
-    <div class="lede">Zona del organizador. Edita y descarga el archivo para publicar los cambios.</div>
-
-    <div id="adminLock">
-      <div class="resbox" style="max-width:380px;margin:14px auto;text-align:center">
-        <div class="fch" style="margin-top:0">&#128274; Acceso privado</div>
-        <p class="muted" style="margin-top:4px">Ingresa la clave para administrar la polla.</p>
-        <input type="password" id="adminPass" placeholder="Clave" style="width:100%;margin:6px 0">
-        <button class="tab" id="adminEnter" style="width:100%">Entrar</button>
-        <p id="adminErr" class="muted" style="color:var(--red);display:none;margin-bottom:0">Clave incorrecta.</p>
-      </div>
-    </div>
-
-    <div id="adminContent" style="display:none">
-      <div class="resbox" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-color:var(--gold)">
-        <div style="flex:1;min-width:180px">
-          <div class="fch" style="margin:0">Publicar cambios</div>
-          <p class="muted" style="margin:2px 0 0">Descarga el archivo y súbelo a Cloudflare. Recién ahí los demás ven los cambios.</p>
-        </div>
-        <button class="tab active" id="btnDescargar">&#11015; Descargar archivo actualizado</button>
-      </div>
-
-      <nav class="tabs" id="adminTabs" style="margin:16px 0 18px;justify-content:flex-start">
-        <button class="tab active" data-atab="res">Resultados</button>
-        <button class="tab" data-atab="pred">Pronósticos</button>
-        <button class="tab" data-atab="pre">Pre-torneo</button>
-        <button class="tab" data-atab="add">Agregar partido</button>
-      </nav>
-
-      <div class="apanel active" id="apanel-res">
-        <p class="muted">Escribe el marcador final de cada partido. Los puntajes se recalculan solos.</p>
-        <div><label class="selbl">FECHA</label><select id="admResFecha"></select></div>
-        <div id="admResBody"></div>
-      </div>
-
-      <div class="apanel" id="apanel-pred">
-        <p class="muted">Pronóstico de cada jugador para esta fecha (goles local&ndash;visita).</p>
-        <div><label class="selbl">FECHA</label><select id="admPredFecha"></select></div>
-        <div class="scroll" id="admPredBody"></div>
-      </div>
-
-      <div class="apanel" id="apanel-pre"></div>
-
-      <div class="apanel" id="apanel-add">
-        <p class="muted">Para cargar las eliminatorias cuando se definan los cruces. Usa la misma &ldquo;fecha&rdquo; para agrupar varios partidos del mismo día.</p>
-        <div class="resbox">
-          <div class="adm-add-grid">
-            <label class="full"><div class="adm-lbl">Fase</div>
-              <select id="addFase" style="width:100%"><option value="grupos">Fase de grupos</option><option value="eliminatorias">Eliminatorias</option></select></label>
-            <label class="full"><div class="adm-lbl">Fecha (etiqueta)</div><input type="text" id="addLabel" placeholder="Ej: Dieciseisavos &middot; 28 jun"></label>
-            <label><div class="adm-lbl">Local</div><input type="text" id="addLocal" placeholder="Equipo local"></label>
-            <label><div class="adm-lbl">Visita</div><input type="text" id="addVisita" placeholder="Equipo visita"></label>
-            <label><div class="adm-lbl">Multiplicador</div><input type="number" id="addMult" min="1" value="2"></label>
-          </div>
-          <button class="tab" id="btnAddPartido">Agregar partido</button>
-        </div>
-        <p class="muted">Sugerencia: grupos &times;1, dieciseisavos a semis &times;2, 3er lugar y final &times;3.</p>
-      </div>
-    </div>
+    <div class="sec-title">🔒 Admin <span class="orn"></span></div>
+    <div class="lede">Resultados reales, datos del torneo y horarios. Requiere clave de admin.</div>
+    <div id="adminBody"></div>
   </section>
 
   <div class="divider">✦ ✦ ✦</div>
@@ -395,15 +352,23 @@ input.adm-text{width:100%}
 /* ============================================================
    CholoBet · visor estático. Datos horneados, nada editable.
    ============================================================ */
-/*DATA_START*/const DATA = {"roster": ["Cholo", "Bull", "Cebolla", "Albani", "Simon", "Pablo Benario", "Agu Leon", "Juan", "Tomy", "Emiliano", "Gabo", "Seba Brzo", "Seba Rorsis", "Diego"], "pretorneo": {"Juan": {"fifa": {"bota": "Harry Kane", "mvp": "Kylian Mbappé", "arquero": "David Raya", "joven": "Lamine Yamal", "gol": "Lamine Yamal"}, "podio": ["España", "Francia", "Inglaterra"], "clasificados": ["A · México", "A · Corea del Sur", "B · Canadá", "B · Suiza", "C · Brasil", "C · Marruecos", "C · Escocia", "D · Estados Unidos", "D · Paraguay", "D · Turquía", "E · Alemania", "E · Costa de Marfil", "E · Ecuador", "F · Países Bajos", "F · Japón", "F · Suecia", "G · Bélgica", "G · Egipto", "H · España", "H · Arabia Saudita", "H · Uruguay", "I · Francia", "I · Senegal", "I · Noruega", "J · Argentina", "J · Argelia", "J · Austria", "K · Portugal", "K · Colombia", "L · Inglaterra", "L · Croacia", "L · Ghana"]}, "Simon": {"fifa": {"bota": "Mbappe", "mvp": "Mbappe", "arquero": "Unai Simón", "joven": "Lamine yamal", "gol": "Lamine yamal"}, "podio": ["España", "Francia", "Argentina"], "clasificados": ["A · México", "A · Corea del Sur", "A · Chequia", "B · Canadá", "B · Suiza", "C · Brasil", "C · Marruecos", "C · Escocia", "D · Estados Unidos", "D · Paraguay", "D · Turquía", "E · Alemania", "E · Costa de Marfil", "E · Ecuador", "F · Países Bajos", "F · Japón", "F · Suecia", "G · Bélgica", "G · Egipto", "H · España", "H · Uruguay", "I · Francia", "I · Senegal", "I · Noruega", "J · Argentina", "J · Argelia", "J · Austria", "K · Portugal", "K · Colombia", "K · Uzbekistán", "L · Inglaterra", "L · Croacia"]}, "Cebolla": {"fifa": {"bota": "Mbappe", "mvp": "Lamine Yamal", "arquero": "David Raya", "joven": "Lamine Yamal", "gol": "Lamie Yamal"}, "podio": ["España", "Inglaterra", "Alemania"], "clasificados": ["A · México", "A · Sudáfrica", "A · Corea del Sur", "A · Chequia", "B · Canadá", "B · Suiza", "C · Brasil", "C · Marruecos", "C · Escocia", "D · Estados Unidos", "D · Turquía", "E · Alemania", "E · Costa de Marfil", "E · Ecuador", "F · Países Bajos", "F · Japón", "F · Suecia", "G · Bélgica", "G · Egipto", "G · Irán", "H · España", "H · Uruguay", "I · Francia", "I · Senegal", "I · Noruega", "J · Argentina", "K · Portugal", "K · Colombia", "K · RD Congo", "L · Inglaterra", "L · Croacia", "L · Ghana"]}, "Emiliano": {"fifa": {"bota": "Lamine yamal", "mvp": "Messi", "arquero": "Mike maignan", "joven": "Lamine yamal", "gol": "Mbappe"}, "podio": ["Francia", "España", "Brasil"], "clasificados": ["A · México", "A · Corea del Sur", "A · Chequia", "B · Canadá", "B · Suiza", "B · Bosnia y Herzegovina", "C · Brasil", "C · Marruecos", "C · Escocia", "D · Estados Unidos", "D · Paraguay", "D · Turquía", "E · Alemania", "E · Costa de Marfil", "E · Ecuador", "F · Países Bajos", "F · Japón", "F · Suecia", "G · Bélgica", "G · Egipto", "H · España", "H · Uruguay", "I · Francia", "I · Noruega", "J · Argentina", "J · Argelia", "J · Austria", "K · Portugal", "K · Colombia", "L · Inglaterra", "L · Croacia", "L · Ghana"]}, "Seba Brzo": {"fifa": {"bota": "Mbappe", "mvp": "Luis diaz", "arquero": "Yassine Bounou", "joven": "Yamal", "gol": "Valverde"}, "podio": ["España", "Francia", "Brasil"], "clasificados": ["A · México", "A · Corea del Sur", "B · Canadá", "B · Suiza", "C · Brasil", "C · Marruecos", "C · Escocia", "D · Estados Unidos", "D · Paraguay", "D · Turquía", "E · Alemania", "E · Costa de Marfil", "E · Ecuador", "F · Países Bajos", "F · Japón", "F · Suecia", "G · Bélgica", "G · Egipto", "G · Irán", "H · España", "H · Uruguay", "I · Francia", "I · Senegal", "I · Noruega", "J · Argentina", "J · Argelia", "J · Austria", "K · Portugal", "K · Colombia", "L · Inglaterra", "L · Croacia", "L · Ghana"]}, "Gabo": {"fifa": {"bota": "Mbappe", "mvp": "Mbappe", "arquero": "Dibu Martinez", "joven": "Doué", "gol": "Cristiano Ronaldo"}, "podio": ["España", "Francia", "Argentina"], "clasificados": ["A · México", "A · Corea del Sur", "B · Canadá", "B · Suiza", "B · Bosnia y Herzegovina", "C · Brasil", "C · Marruecos", "C · Escocia", "D · Estados Unidos", "D · Paraguay", "D · Turquía", "E · Alemania", "E · Costa de Marfil", "E · Ecuador", "F · Países Bajos", "F · Japón", "F · Suecia", "G · Bélgica", "G · Egipto", "H · España", "H · Uruguay", "I · Francia", "I · Senegal", "I · Noruega", "J · Argentina", "J · Argelia", "J · Austria", "K · Portugal", "K · Colombia", "L · Inglaterra", "L · Croacia", "L · Ghana"]}, "Diego": {"fifa": {"bota": "Mbappe", "mvp": "Yamal", "arquero": "David Raya", "joven": "Yamal", "gol": "Julian alvarez"}, "podio": ["España", "Inglaterra", "Francia"], "clasificados": ["A · México", "A · Corea del Sur", "A · Chequia", "B · Canadá", "B · Suiza", "B · Bosnia y Herzegovina", "C · Brasil", "C · Marruecos", "C · Escocia", "D · Estados Unidos", "D · Paraguay", "D · Turquía", "E · Alemania", "E · Costa de Marfil", "E · Ecuador", "F · Países Bajos", "F · Japón", "F · Suecia", "G · Bélgica", "G · Egipto", "H · España", "H · Uruguay", "I · Francia", "I · Senegal", "I · Noruega", "J · Argentina", "J · Austria", "K · Portugal", "K · Colombia", "L · Inglaterra", "L · Croacia", "L · Ghana"]}, "Bull": {"fifa": {"bota": "Kylian Mbappé", "mvp": "Kylian Mbappé", "arquero": "Mike Maignan", "joven": "Lamine Yamal", "gol": "Michael Olise"}, "podio": ["Francia", "Inglaterra", "España"], "clasificados": ["A · México", "A · Corea del Sur", "A · Chequia", "B · Canadá", "B · Suiza", "C · Brasil", "C · Marruecos", "C · Escocia", "D · Estados Unidos", "D · Australia", "D · Turquía", "E · Alemania", "E · Costa de Marfil", "E · Ecuador", "F · Países Bajos", "F · Japón", "F · Suecia", "G · Irán", "G · Nueva Zelanda", "H · España", "H · Uruguay", "I · Francia", "I · Senegal", "I · Noruega", "J · Argentina", "J · Argelia", "J · Austria", "K · Portugal", "K · Colombia", "L · Inglaterra", "L · Croacia", "L · Ghana"]}, "Seba Rorsis": {"fifa": {"bota": "Mbappe", "mvp": "Lamine yamal", "arquero": "Unai Simón", "joven": "Lamine Yamal", "gol": "Harry Kane"}, "podio": ["España", "Francia", "Portugal"], "clasificados": ["A · México", "A · Sudáfrica", "A · Corea del Sur", "B · Canadá", "B · Suiza", "B · Bosnia y Herzegovina", "C · Brasil", "C · Marruecos", "C · Haití", "D · Estados Unidos", "D · Paraguay", "D · Turquía", "E · Alemania", "E · Ecuador", "F · Países Bajos", "F · Japón", "G · Bélgica", "G · Egipto", "G · Nueva Zelanda", "H · España", "H · Uruguay", "I · Francia", "I · Senegal", "I · Noruega", "J · Argentina", "J · Argelia", "J · Austria", "K · Portugal", "K · Colombia", "L · Inglaterra", "L · Croacia", "L · Ghana"]}, "Pablo Benario": {"fifa": {"bota": "kylian mbappe", "mvp": "raphiña", "arquero": "diogo costa", "joven": "Endrick (brasil)", "gol": "desire doue"}, "podio": ["Portugal", "Francia", "Brasil"], "clasificados": ["A · México", "A · Sudáfrica", "A · Corea del Sur", "A · Chequia", "B · Suiza", "B · Bosnia y Herzegovina", "C · Brasil", "C · Marruecos", "C · Escocia", "D · Estados Unidos", "D · Paraguay", "D · Turquía", "E · Alemania", "E · Costa de Marfil", "E · Ecuador", "F · Países Bajos", "F · Japón", "F · Suecia", "G · Bélgica", "G · Egipto", "H · España", "H · Uruguay", "I · Francia", "I · Senegal", "I · Noruega", "J · Argentina", "J · Austria", "K · Portugal", "K · Colombia", "L · Inglaterra", "L · Croacia", "L · Ghana"]}, "Agu Leon": {"fifa": {"bota": "Michael Olise", "mvp": "Vitinha", "arquero": "Bounou (Marruecos)", "joven": "Lamine Yamal", "gol": "Messi"}, "podio": ["Portugal", "Francia", "España"], "clasificados": ["A · México", "A · Corea del Sur", "A · Chequia", "B · Canadá", "B · Suiza", "B · Bosnia y Herzegovina", "C · Brasil", "C · Marruecos", "C · Escocia", "D · Estados Unidos", "D · Paraguay", "D · Turquía", "E · Alemania", "E · Ecuador", "F · Países Bajos", "F · Japón", "F · Suecia", "G · Bélgica", "G · Egipto", "H · España", "H · Uruguay", "I · Francia", "I · Senegal", "I · Noruega", "J · Argentina", "J · Argelia", "J · Austria", "K · Portugal", "K · Colombia", "L · Inglaterra", "L · Croacia", "L · Ghana"]}, "Cholo": {"fifa": {"bota": "Mbappe", "mvp": "Harry Kane", "arquero": "Dibu Martinez", "joven": "Lamine Yamal", "gol": "Michael Olise"}, "podio": ["España", "Francia", "Inglaterra"], "clasificados": ["A · México", "A · Corea del Sur", "A · Chequia", "B · Canadá", "B · Suiza", "B · Bosnia y Herzegovina", "C · Brasil", "C · Marruecos", "C · Escocia", "D · Estados Unidos", "D · Paraguay", "D · Turquía", "E · Alemania", "E · Costa de Marfil", "E · Ecuador", "F · Países Bajos", "F · Japón", "F · Suecia", "G · Bélgica", "G · Egipto", "H · España", "H · Uruguay", "I · Francia", "I · Senegal", "I · Noruega", "J · Argentina", "J · Argelia", "J · Austria", "K · Portugal", "K · Colombia", "L · Inglaterra", "L · Croacia"]}, "Albani": {"fifa": {"bota": "Kylian Mbappé", "mvp": "Kylian Mbappé", "arquero": "Mike Maignan", "joven": "Lamine Jamal", "gol": "Michael Olise"}, "podio": ["Francia", "España", "Portugal"], "clasificados": ["A · México", "A · Sudáfrica", "A · Corea del Sur", "A · Chequia", "B · Canadá", "B · Suiza", "B · Bosnia y Herzegovina", "C · Brasil", "C · Marruecos", "D · Estados Unidos", "D · Paraguay", "D · Turquía", "E · Alemania", "E · Curazao", "E · Ecuador", "F · Países Bajos", "F · Japón", "F · Suecia", "G · Bélgica", "G · Irán", "H · España", "H · Uruguay", "I · Francia", "I · Senegal", "I · Noruega", "J · Argentina", "J · Austria", "K · Portugal", "K · Colombia", "L · Inglaterra", "L · Croacia", "L · Ghana"]}, "Tomy": {"fifa": {"bota": "Mbappe", "mvp": "Lamine Yamal", "arquero": "Mike Maignan", "joven": "Arda Guler", "gol": "Neymar Jr"}, "podio": ["Francia", "Argentina", "Brasil"], "clasificados": ["A · México", "A · Sudáfrica", "A · Corea del Sur", "B · Canadá", "B · Suiza", "C · Brasil", "C · Marruecos", "D · Paraguay", "D · Australia", "D · Turquía", "E · Alemania", "E · Costa de Marfil", "E · Ecuador", "F · Países Bajos", "F · Japón", "F · Suecia", "G · Bélgica", "G · Egipto", "G · Irán", "H · España", "H · Uruguay", "I · Francia", "I · Senegal", "I · Noruega", "J · Argentina", "J · Argelia", "K · Portugal", "K · Colombia", "K · RD Congo", "L · Inglaterra", "L · Croacia", "L · Panamá"]}}, "fechas": [{"id": "jue11", "label": "Jueves 11 jun", "partidos": [{"local": "México", "visita": "Sudáfrica", "mult": 1, "rl": 2, "rv": 0}, {"local": "Corea del Sur", "visita": "Chequia", "mult": 1, "rl": 2, "rv": 1}], "preds": {"Juan": [{"gl": 2, "gv": 1}, {"gl": 2, "gv": 1}], "Simon": [{"gl": 2, "gv": 0}, {"gl": 1, "gv": 1}], "Gabo": [{"gl": 3, "gv": 1}, {"gl": 1, "gv": 0}], "Emiliano": [{"gl": 2, "gv": 0}, {"gl": 0, "gv": 1}], "Diego": [{"gl": 2, "gv": 0}, {"gl": 1, "gv": 1}], "Albani": [{"gl": 3, "gv": 1}, {"gl": 1, "gv": 1}], "Bull": [{"gl": 2, "gv": 0}, {"gl": 1, "gv": 1}], "Cebolla": [{"gl": 2, "gv": 1}, {"gl": 2, "gv": 1}], "Seba Rorsis": [{"gl": 1, "gv": 0}, {"gl": 2, "gv": 0}], "Seba Brzo": [{"gl": 2, "gv": 1}, {"gl": 1, "gv": 0}], "Agu Leon": [{"gl": 2, "gv": 1}, {"gl": 1, "gv": 1}], "Cholo": [{"gl": 1, "gv": 0}, {"gl": 1, "gv": 1}], "Pablo Benario": [{"gl": 1, "gv": 0}, {"gl": 1, "gv": 1}], "Tomy": [{"gl": 2, "gv": 0}, {"gl": 3, "gv": 1}]}, "fase": "grupos"}, {"id": "vie12", "label": "Viernes 12 jun", "partidos": [{"local": "Canadá", "visita": "Bosnia y Herzegovina", "mult": 1, "rl": 1, "rv": 1}, {"local": "Estados Unidos", "visita": "Paraguay", "mult": 1, "rl": 4, "rv": 1}], "preds": {"Emiliano": [{"gl": 2, "gv": 0}, {"gl": 1, "gv": 2}], "Albani": [{"gl": 1, "gv": 0}, {"gl": 2, "gv": 1}], "Gabo": [{"gl": 1, "gv": 1}, {"gl": 0, "gv": 1}], "Juan": [{"gl": 1, "gv": 0}, {"gl": 0, "gv": 1}], "Seba Brzo": [{"gl": 1, "gv": 0}, {"gl": 1, "gv": 0}], "Cebolla": [{"gl": 1, "gv": 0}, {"gl": 2, "gv": 1}], "Simon": [{"gl": 2, "gv": 1}, {"gl": 2, "gv": 1}], "Diego": [{"gl": 2, "gv": 1}, {"gl": 1, "gv": 0}], "Tomy": [{"gl": 1, "gv": 0}, {"gl": 0, "gv": 2}], "Agu Leon": [{"gl": 0, "gv": 1}, {"gl": 0, "gv": 2}], "Pablo Benario": [{"gl": 0, "gv": 2}, {"gl": 0, "gv": 2}], "Bull": [{"gl": "", "gv": ""}, {"gl": 1, "gv": 1}], "Seba Rorsis": [{"gl": "", "gv": ""}, {"gl": 1, "gv": 1}], "Cholo": [{"gl": 1, "gv": 0}, {"gl": 1, "gv": 0}]}, "fase": "grupos"}, {"id": "sab13", "label": "Sábado 13 jun", "fase": "grupos", "partidos": [{"local": "Catar", "visita": "Suiza", "mult": 1, "rl": "", "rv": ""}, {"local": "Brasil", "visita": "Marruecos", "mult": 1, "rl": "", "rv": ""}, {"local": "Haití", "visita": "Escocia", "mult": 1, "rl": "", "rv": ""}, {"local": "Australia", "visita": "Turquía", "mult": 1, "rl": "", "rv": ""}], "preds": {}}, {"id": "dom14", "label": "Domingo 14 jun", "fase": "grupos", "partidos": [{"local": "Alemania", "visita": "Curazao", "mult": 1, "rl": "", "rv": ""}, {"local": "Países Bajos", "visita": "Japón", "mult": 1, "rl": "", "rv": ""}, {"local": "Costa de Marfil", "visita": "Ecuador", "mult": 1, "rl": "", "rv": ""}, {"local": "Suecia", "visita": "Túnez", "mult": 1, "rl": "", "rv": ""}], "preds": {}}, {"id": "lun15", "label": "Lunes 15 jun", "fase": "grupos", "partidos": [{"local": "España", "visita": "Cabo Verde", "mult": 1, "rl": "", "rv": ""}, {"local": "Bélgica", "visita": "Egipto", "mult": 1, "rl": "", "rv": ""}, {"local": "Arabia Saudita", "visita": "Uruguay", "mult": 1, "rl": "", "rv": ""}, {"local": "Irán", "visita": "Nueva Zelanda", "mult": 1, "rl": "", "rv": ""}], "preds": {}}, {"id": "mar16", "label": "Martes 16 jun", "fase": "grupos", "partidos": [{"local": "Francia", "visita": "Senegal", "mult": 1, "rl": "", "rv": ""}, {"local": "Irak", "visita": "Noruega", "mult": 1, "rl": "", "rv": ""}, {"local": "Argentina", "visita": "Argelia", "mult": 1, "rl": "", "rv": ""}, {"local": "Austria", "visita": "Jordania", "mult": 1, "rl": "", "rv": ""}], "preds": {}}, {"id": "mie17", "label": "Miércoles 17 jun", "fase": "grupos", "partidos": [{"local": "Portugal", "visita": "RD Congo", "mult": 1, "rl": "", "rv": ""}, {"local": "Inglaterra", "visita": "Croacia", "mult": 1, "rl": "", "rv": ""}, {"local": "Ghana", "visita": "Panamá", "mult": 1, "rl": "", "rv": ""}, {"local": "Uzbekistán", "visita": "Colombia", "mult": 1, "rl": "", "rv": ""}], "preds": {}}, {"id": "jue18", "label": "Jueves 18 jun", "fase": "grupos", "partidos": [{"local": "Chequia", "visita": "Sudáfrica", "mult": 1, "rl": "", "rv": ""}, {"local": "Suiza", "visita": "Bosnia y Herzegovina", "mult": 1, "rl": "", "rv": ""}, {"local": "Canadá", "visita": "Catar", "mult": 1, "rl": "", "rv": ""}, {"local": "México", "visita": "Corea del Sur", "mult": 1, "rl": "", "rv": ""}], "preds": {}}, {"id": "vie19", "label": "Viernes 19 jun", "fase": "grupos", "partidos": [{"local": "Estados Unidos", "visita": "Australia", "mult": 1, "rl": "", "rv": ""}, {"local": "Escocia", "visita": "Marruecos", "mult": 1, "rl": "", "rv": ""}, {"local": "Brasil", "visita": "Haití", "mult": 1, "rl": "", "rv": ""}, {"local": "Turquía", "visita": "Paraguay", "mult": 1, "rl": "", "rv": ""}], "preds": {}}, {"id": "sab20", "label": "Sábado 20 jun", "fase": "grupos", "partidos": [{"local": "Países Bajos", "visita": "Suecia", "mult": 1, "rl": "", "rv": ""}, {"local": "Alemania", "visita": "Costa de Marfil", "mult": 1, "rl": "", "rv": ""}, {"local": "Ecuador", "visita": "Curazao", "mult": 1, "rl": "", "rv": ""}, {"local": "Túnez", "visita": "Japón", "mult": 1, "rl": "", "rv": ""}], "preds": {}}, {"id": "dom21", "label": "Domingo 21 jun", "fase": "grupos", "partidos": [{"local": "España", "visita": "Arabia Saudita", "mult": 1, "rl": "", "rv": ""}, {"local": "Bélgica", "visita": "Irán", "mult": 1, "rl": "", "rv": ""}, {"local": "Uruguay", "visita": "Cabo Verde", "mult": 1, "rl": "", "rv": ""}, {"local": "Nueva Zelanda", "visita": "Egipto", "mult": 1, "rl": "", "rv": ""}], "preds": {}}, {"id": "lun22", "label": "Lunes 22 jun", "fase": "grupos", "partidos": [{"local": "Argentina", "visita": "Austria", "mult": 1, "rl": "", "rv": ""}, {"local": "Francia", "visita": "Irak", "mult": 1, "rl": "", "rv": ""}, {"local": "Noruega", "visita": "Senegal", "mult": 1, "rl": "", "rv": ""}, {"local": "Jordania", "visita": "Argelia", "mult": 1, "rl": "", "rv": ""}], "preds": {}}, {"id": "mar23", "label": "Martes 23 jun", "fase": "grupos", "partidos": [{"local": "Portugal", "visita": "Uzbekistán", "mult": 1, "rl": "", "rv": ""}, {"local": "Inglaterra", "visita": "Ghana", "mult": 1, "rl": "", "rv": ""}, {"local": "Panamá", "visita": "Croacia", "mult": 1, "rl": "", "rv": ""}, {"local": "Colombia", "visita": "RD Congo", "mult": 1, "rl": "", "rv": ""}], "preds": {}}, {"id": "mie24", "label": "Miércoles 24 jun", "fase": "grupos", "partidos": [{"local": "Suiza", "visita": "Canadá", "mult": 1, "rl": "", "rv": ""}, {"local": "Bosnia y Herzegovina", "visita": "Catar", "mult": 1, "rl": "", "rv": ""}, {"local": "Escocia", "visita": "Brasil", "mult": 1, "rl": "", "rv": ""}, {"local": "Marruecos", "visita": "Haití", "mult": 1, "rl": "", "rv": ""}, {"local": "Chequia", "visita": "México", "mult": 1, "rl": "", "rv": ""}, {"local": "Sudáfrica", "visita": "Corea del Sur", "mult": 1, "rl": "", "rv": ""}], "preds": {}}, {"id": "jue25", "label": "Jueves 25 jun", "fase": "grupos", "partidos": [{"local": "Curazao", "visita": "Costa de Marfil", "mult": 1, "rl": "", "rv": ""}, {"local": "Ecuador", "visita": "Alemania", "mult": 1, "rl": "", "rv": ""}, {"local": "Japón", "visita": "Suecia", "mult": 1, "rl": "", "rv": ""}, {"local": "Túnez", "visita": "Países Bajos", "mult": 1, "rl": "", "rv": ""}, {"local": "Turquía", "visita": "Estados Unidos", "mult": 1, "rl": "", "rv": ""}, {"local": "Paraguay", "visita": "Australia", "mult": 1, "rl": "", "rv": ""}], "preds": {}}, {"id": "vie26", "label": "Viernes 26 jun", "fase": "grupos", "partidos": [{"local": "Noruega", "visita": "Francia", "mult": 1, "rl": "", "rv": ""}, {"local": "Senegal", "visita": "Irak", "mult": 1, "rl": "", "rv": ""}, {"local": "Cabo Verde", "visita": "Arabia Saudita", "mult": 1, "rl": "", "rv": ""}, {"local": "Uruguay", "visita": "España", "mult": 1, "rl": "", "rv": ""}, {"local": "Egipto", "visita": "Irán", "mult": 1, "rl": "", "rv": ""}, {"local": "Nueva Zelanda", "visita": "Bélgica", "mult": 1, "rl": "", "rv": ""}], "preds": {}}, {"id": "sab27", "label": "Sábado 27 jun", "fase": "grupos", "partidos": [{"local": "Panamá", "visita": "Inglaterra", "mult": 1, "rl": "", "rv": ""}, {"local": "Croacia", "visita": "Ghana", "mult": 1, "rl": "", "rv": ""}, {"local": "Colombia", "visita": "Portugal", "mult": 1, "rl": "", "rv": ""}, {"local": "RD Congo", "visita": "Uzbekistán", "mult": 1, "rl": "", "rv": ""}, {"local": "Argelia", "visita": "Austria", "mult": 1, "rl": "", "rv": ""}, {"local": "Jordania", "visita": "Argentina", "mult": 1, "rl": "", "rv": ""}], "preds": {}}], "actuals": {"clasificados": [], "fifa": {}, "podio": ["", "", ""]}};/*DATA_END*/
-const state = DATA;
+/* ============================================================
+   CholoBet · cliente sincronizado (Cloudflare KV + Worker)
+   ============================================================ */
+// >>> PON AQUI la URL de tu Worker (termina en .workers.dev), sin barra final:
+const API_BASE = 'https://cholobet-api.TU-SUBDOMINIO.workers.dev';
+
+let state = {roster:[], pretorneo:{}, fechas:[], actuals:{clasificados:[],fifa:{},podio:['','','']}, pwlog:[], serverTime:0};
+let MINE = {};        // mis pronosticos (privado)
+let TOKEN = null, ME = null;
+try{ TOKEN = localStorage.getItem('cholobet_token') || null; ME = localStorage.getItem('cholobet_me') || null; }catch(e){}
 
 /* ---------- helpers ---------- */
 function el(t,c,txt){const e=document.createElement(t);if(c)e.className=c;if(txt!=null)e.textContent=txt;return e;}
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));}
 function sgn(x){return x>0?1:(x<0?-1:0);}
 function has(v){return v!==''&&v!==null&&v!==undefined;}
-const SHORT={"Bosnia y Herzegovina": "Bosnia", "Estados Unidos": "EEUU", "Corea del Sur": "Corea", "Costa de Marfil": "C.Marfil", "Países Bajos": "P.Bajos", "Cabo Verde": "C.Verde", "Arabia Saudita": "Arabia", "Nueva Zelanda": "N.Zelanda", "RD Congo": "RDC", "Uzbekistán": "Uzbek.", "Curazao": "Curazao"};
+const SHORT={'Bosnia y Herzegovina':'Bosnia','Estados Unidos':'EEUU','Corea del Sur':'Corea'};
 function short(t){return SHORT[t]||t;}
 
 /* ---------- scoring ---------- */
@@ -493,13 +458,13 @@ function latestPlayedFechaIdx(){
   state.fechas.forEach((f,i)=>{ if(f.partidos.some(p=>has(p.rl)&&has(p.rv))) idx=i; });
   return idx;
 }
-function renderFechaSel(forceIdx){
-  const s=document.getElementById('fechaSel'); s.innerHTML='';
+function renderFechaSel(){
+  const s=document.getElementById('fechaSel'); if(!s) return; const cur=s.value;
+  s.innerHTML='';
   state.fechas.forEach((f,i)=>{const o=el('option',null,f.label);o.value=i;s.appendChild(o);});
   s.onchange=()=>renderFecha(+s.value);
-  const def=(forceIdx!=null)?forceIdx:latestPlayedFechaIdx();
-  s.value=def;
-  renderFecha(def);
+  const def=(cur!==''&&cur!=null&&state.fechas[+cur])?+cur:latestPlayedFechaIdx();
+  s.value=def; renderFecha(def);
 }
 function mix(a,b,t){const r=a.map((v,i)=>Math.round(v+(b[i]-v)*t));return `rgb(${r[0]},${r[1]},${r[2]})`;}
 // estilo del chip proporcional: blanco (0 pts) -> verde (máximo posible del partido = 4×mult)
@@ -517,47 +482,61 @@ function chipFor(pred,p){
   const badge = `<span class="ptsbadge ${s.pts>0?'on':''}">+${s.pts}</span>`;
   return `<span class="chip" style="${chipColor(s,p)}">${txt}</span>${badge}`;
 }
+function koLabel(ms){
+  if(!ms) return 'sin hora';
+  try{ return 'empieza '+new Date(ms).toLocaleString('es-CL',{weekday:'short',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}); }catch(e){ return 'programado'; }
+}
+// celda: {gl,gv} revelado | {a:1} ya puso (oculto) | null/undefined no puso
+function cellChip(cell,p){
+  if(cell && ('gl' in cell)) return chipFor(cell,p);
+  if(cell && cell.a) return '<span class="chip ans" title="Ya puso su pronóstico">✓</span>';
+  return '<span class="chip miss" title="Aún no pronostica">·</span>';
+}
 function renderFecha(idx){
-  const body=document.getElementById('fechaBody'); body.innerHTML='';
+  const body=document.getElementById('fechaBody'); if(!body) return; body.innerHTML='';
   const f=state.fechas[idx]; if(!f) return;
-  // resultados reales del encabezado
+  const now=state.serverTime||Date.now();
   const rb=el('div','resbox');
   f.partidos.forEach(p=>{
     const line=el('div','rl');
-    const sc = (has(p.rl)&&has(p.rv)) ? `<span class="score">${p.rl} - ${p.rv}</span>` : `<span class="score">vs</span>`;
+    const started=now>=p.kickoff;
+    const sc=(has(p.rl)&&has(p.rv))?`<span class="score">${p.rl} - ${p.rv}</span>`:`<span class="score">vs</span>`;
     line.innerHTML=`<span class="team">${esc(p.local)}</span>${sc}<span class="team v">${esc(p.visita)}</span>`;
-    if(!(has(p.rl)&&has(p.rv))) { const pe=el('div','pend','· pendiente'); line.appendChild(pe); }
+    const tag=(has(p.rl)&&has(p.rv))?'':(started?'· en juego / cerrado':'· '+koLabel(p.kickoff));
+    if(tag){ const pe=el('div','pend',tag); line.appendChild(pe); }
     rb.appendChild(line);
   });
   body.appendChild(rb);
-  // tabla de pronosticos
   const rows=state.roster.map(n=>{
-    const pr=f.preds[n];
-    let tot=0,played=false;
-    f.partidos.forEach((p,i)=>{const s=puntos(pr?pr[i]:null,p); if(s){tot+=s.pts;played=true;}});
-    return {n,pr,tot,played};
+    const pr=f.preds[n]; let tot=0;
+    f.partidos.forEach((p,i)=>{ const c=pr?pr[i]:null; if(c&&('gl' in c)){ const s=puntos(c,p); if(s) tot+=s.pts; } });
+    return {n,pr,tot};
   }).sort((a,b)=> b.tot-a.tot || a.n.localeCompare(b.n));
   let h='<div class="scroll"><table class="tbl"><thead><tr><th>Jugador</th>'
     + f.partidos.map(p=>`<th class="num">${esc(short(p.local))}–${esc(short(p.visita))}</th>`).join('')
     + '<th class="num">Pts</th></tr></thead><tbody>';
   rows.forEach(r=>{
     h+=`<tr><td class="name">${esc(r.n)}</td>`;
-    f.partidos.forEach((p,i)=>{ h+=`<td class="num">${chipFor(r.pr?r.pr[i]:null,p)}</td>`; });
+    f.partidos.forEach((p,i)=>{ h+=`<td class="num">${cellChip(r.pr?r.pr[i]:null,p)}</td>`; });
     h+=`<td class="num tot">${r.tot}</td></tr>`;
   });
   h+='</tbody></table></div>';
   body.insertAdjacentHTML('beforeend',h);
+  body.insertAdjacentHTML('beforeend','<p class="muted" style="margin-top:8px"><span class="chip ans">✓</span> ya puso · <span class="chip miss">·</span> falta · los marcadores se revelan al empezar cada partido.</p>');
 }
 
 /* ---------- render: por usuario ---------- */
 function renderUserSel(){
-  const s=document.getElementById('userSel'); s.innerHTML='';
-  state.roster.slice().sort((a,b)=>a.localeCompare(b)).forEach(n=>{const o=el('option',null,n);o.value=n;s.appendChild(o);});
+  const s=document.getElementById('userSel'); if(!s) return; const cur=s.value;
+  s.innerHTML='';
+  const sorted=state.roster.slice().sort((a,b)=>a.localeCompare(b));
+  sorted.forEach(n=>{const o=el('option',null,n);o.value=n;s.appendChild(o);});
   s.onchange=()=>renderUser(s.value);
-  renderUser(s.value||state.roster[0]);
+  const def=(cur && state.roster.includes(cur))?cur:(sorted[0]||'');
+  s.value=def; if(def) renderUser(def);
 }
 function renderUser(name){
-  const body=document.getElementById('userBody'); body.innerHTML='';
+  const body=document.getElementById('userBody'); if(!body) return; body.innerHTML='';
   const m=matchPts(name), pre=prePuntos(name);
   const head=el('div');
   head.innerHTML=`<div class="subhead" style="font-size:24px;border:none">${esc(name)} · <span class="tot">${m.pts+pre} pts</span></div>`
@@ -569,14 +548,15 @@ function renderUser(name){
     const sec=el('div'); sec.innerHTML=`<div class="resbox"><div class="fch">${esc(f.label)}</div></div>`;
     const box=sec.querySelector('.resbox');
     f.partidos.forEach((p,i)=>{
-      const pred=pr?pr[i]:null; const s=puntos(pred,p);
-      const predtxt=(pred&&has(pred.gl)&&has(pred.gv))?`${pred.gl}-${pred.gv}`:'no jugó';
+      const cell=pr?pr[i]:null;
       const real=(has(p.rl)&&has(p.rv))?`${p.rl}-${p.rv}`:'pendiente';
-      const pts=s?`+${s.pts}`:'—';
-      const chipStyle = s ? chipColor(s,p) : 'background:#F3E9D5';
+      let predtxt, chipStyle, pts;
+      if(cell && ('gl' in cell)){ const s=puntos(cell,p); predtxt=`${cell.gl}-${cell.gv}`; chipStyle=s?chipColor(s,p):'background:#F3E9D5'; pts=s?`+${s.pts}`:'—'; }
+      else if(cell && cell.a){ predtxt='✓ oculto'; chipStyle='background:#F3E9D5'; pts='—'; }
+      else { predtxt='no jugó'; chipStyle='background:#F3E9D5'; pts='—'; }
       const line=el('div','rl');
       line.innerHTML=`<span class="team">${esc(short(p.local))} vs ${esc(short(p.visita))}</span>`
-        +`<span class="sub">tú: <span class="chip" style="${chipStyle}">${predtxt}</span> · real: <strong>${real}</strong></span>`
+        +`<span class="sub">${esc(name)}: <span class="chip" style="${chipStyle}">${predtxt}</span> · real: <strong>${real}</strong></span>`
         +`<span class="score" style="font-size:18px;min-width:50px">${pts}</span>`;
       box.appendChild(line);
     });
@@ -607,20 +587,13 @@ function renderUser(name){
 /* ---------- render: resultados ---------- */
 let resFase='grupos';
 function renderResultados(){
-  const body=document.getElementById('resBody'); body.innerHTML='';
-  const filt=el('div','fase-filter');
-  [['grupos','Fase de grupos'],['eliminatorias','Eliminatorias']].forEach(([k,lab])=>{
-    const b=el('button','fase-btn'+(resFase===k?' active':''),lab);
-    b.onclick=()=>{ resFase=k; renderResultados(); };
-    filt.appendChild(b);
-  });
-  body.appendChild(filt);
+  const body=document.getElementById('resBody'); if(!body) return; body.innerHTML='';
+  const bar=el('div'); bar.style.margin='0 0 10px';
+  bar.innerHTML=`<button class="fbtn ${resFase==='grupos'?'on':''}" data-f="grupos">Fase de Grupos</button><button class="fbtn ${resFase==='eliminatorias'?'on':''}" data-f="eliminatorias">Eliminatorias</button>`;
+  body.appendChild(bar);
+  bar.querySelectorAll('.fbtn').forEach(b=>b.onclick=()=>{resFase=b.dataset.f;renderResultados();});
   const fechas=state.fechas.filter(f=>(f.fase||'grupos')===resFase);
-  if(!fechas.length){
-    const e=el('p','muted');
-    e.textContent = resFase==='eliminatorias' ? 'Las eliminatorias todavía no comienzan. Aparecerán acá cuando se carguen los cruces.' : 'Aún no hay partidos cargados.';
-    body.appendChild(e); return;
-  }
+  if(!fechas.length){ body.insertAdjacentHTML('beforeend','<p class="muted">Aún no hay partidos en esta fase.</p>'); return; }
   const rb=el('div','resbox');
   fechas.forEach(f=>{
     rb.appendChild(el('div','fch',f.label));
@@ -653,289 +626,309 @@ document.getElementById('standTbl').addEventListener('click',e=>{
   goToUser(c.dataset.user);
 });
 
-/* ---------- tabs (con candado en Admin) ---------- */
-const ADMIN_PASS = 'cholobet2026';   // <-- cámbiala por la tuya
-let adminUnlocked = false;
-let adminReady = false;
-const M1 = '/*' + 'DATA_START' + '*/';
-const M2 = '/*' + 'DATA_END' + '*/';
-const GRUPOS = {
-  A:['México','Sudáfrica','Corea del Sur','Chequia'],
-  B:['Canadá','Bosnia y Herzegovina','Catar','Suiza'],
-  C:['Brasil','Marruecos','Haití','Escocia'],
-  D:['Estados Unidos','Paraguay','Australia','Turquía'],
-  E:['Alemania','Curazao','Costa de Marfil','Ecuador'],
-  F:['Países Bajos','Japón','Suecia','Túnez'],
-  G:['Bélgica','Egipto','Irán','Nueva Zelanda'],
-  H:['España','Cabo Verde','Arabia Saudita','Uruguay'],
-  I:['Francia','Senegal','Irak','Noruega'],
-  J:['Argentina','Argelia','Austria','Jordania'],
-  K:['Portugal','RD Congo','Uzbekistán','Colombia'],
-  L:['Inglaterra','Croacia','Ghana','Panamá']
-};
+/* ============================================================
+   API + sincronizacion
+   ============================================================ */
+async function api(path, method, body){
+  const opt={method:method||'GET', headers:{}};
+  if(body){ opt.headers['Content-Type']='application/json'; opt.body=JSON.stringify(body); }
+  try{
+    const r=await fetch(API_BASE+path, opt);
+    let data={}; try{ data=await r.json(); }catch(e){}
+    if(!r.ok && !data.error) data.error='Error '+r.status;
+    return data;
+  }catch(e){
+    return {error:'No hay conexión con el servidor'};
+  }
+}
+function setBanner(msg, kind){
+  const b=document.getElementById('banner'); if(!b) return;
+  if(!msg){ b.style.display='none'; b.textContent=''; return; }
+  b.style.display='block'; b.className='banner '+(kind||''); b.textContent=msg;
+}
+let bootError=false;
+function renderPublic(){
+  renderStandings(); renderPre(); renderFechaSel(); renderUserSel(); renderResultados(); renderPwlog();
+}
+async function loadState(){
+  if(!API_BASE || API_BASE.indexOf('TU-SUBDOMINIO')>=0){
+    setBanner('⚠ Falta poner la dirección del servidor (API_BASE) dentro del archivo index.html.','err'); bootError=true; return;
+  }
+  const data=await api('/state');
+  if(data.error){ setBanner('No se pudo conectar con el servidor: '+data.error,'err'); bootError=true; return; }
+  state=data; bootError=false; setBanner('');
+  renderPublic();
+}
+async function loadMine(){
+  if(!TOKEN){ MINE={}; return; }
+  const data=await api('/mine?token='+encodeURIComponent(TOKEN));
+  if(data && data.ok){ MINE=data.fechas||{}; ME=data.user; }
+  else { TOKEN=null; ME=null; try{localStorage.removeItem('cholobet_token');localStorage.removeItem('cholobet_me');}catch(e){} MINE={}; }
+}
+async function bootstrap(){
+  setBanner('Cargando…');
+  await loadState();
+  if(bootError) return;
+  await loadMine();
+  renderMis();
+}
+// refresco automatico: revela/cierra/actualiza indicadores al pasar la hora
+setInterval(async()=>{ if(!bootError) await loadState(); }, 60000);
 
-if(!state.actuals) state.actuals={};
-if(!Array.isArray(state.actuals.clasificados)) state.actuals.clasificados=[];
-if(!state.actuals.fifa) state.actuals.fifa={};
-if(!Array.isArray(state.actuals.podio)) state.actuals.podio=['','',''];
-
-document.getElementById('tabs').addEventListener('click',e=>{
-  const b=e.target.closest('.tab'); if(!b) return;
-  if(b.dataset.tab==='admin' && !adminUnlocked){
-    activateTab('admin');
-    const ap=document.getElementById('adminPass'); if(ap) ap.focus();
+/* ============================================================
+   Mis Pronosticos (login + editor propio)
+   ============================================================ */
+async function doLogin(){
+  const user=document.getElementById('miUser').value;
+  const pass=document.getElementById('miPass').value;
+  const msg=document.getElementById('miMsg'); msg.textContent='Entrando…';
+  const data=await api('/login','POST',{user, password:pass});
+  if(!data.ok){ msg.textContent='✗ '+(data.error||'No se pudo entrar'); return; }
+  TOKEN=data.token; ME=data.user;
+  try{ localStorage.setItem('cholobet_token',TOKEN); localStorage.setItem('cholobet_me',ME); }catch(e){}
+  msg.textContent='';
+  await loadMine(); renderMis();
+}
+function doLogout(){
+  TOKEN=null; ME=null; MINE={};
+  try{ localStorage.removeItem('cholobet_token'); localStorage.removeItem('cholobet_me'); }catch(e){}
+  renderMis();
+}
+function renderMis(){
+  const wrap=document.getElementById('misBody'); if(!wrap) return;
+  if(!ME || !TOKEN){
+    const opts=state.roster.map(n=>`<option value="${esc(n)}">${esc(n)}</option>`).join('');
+    wrap.innerHTML=`<div class="loginbox">
+      <p class="muted">Entra con tu nombre para cargar y editar tus pronósticos. Clave por defecto: <strong>123</strong> (cámbiala en la pestaña Contraseñas).</p>
+      <div class="frow"><label class="selbl">JUGADOR</label><select id="miUser">${opts}</select></div>
+      <div class="frow"><label class="selbl">CLAVE</label><input type="password" id="miPass" placeholder="123"></div>
+      <button class="btn" id="miEnter">Entrar</button> <span id="miMsg" class="muted"></span>
+    </div>`;
+    document.getElementById('miEnter').onclick=doLogin;
+    document.getElementById('miPass').addEventListener('keydown',e=>{ if(e.key==='Enter') doLogin(); });
     return;
   }
+  const opts=state.fechas.map((f,i)=>`<option value="${i}">${esc(f.label)}</option>`).join('');
+  wrap.innerHTML=`<div class="frow"><span class="muted">Conectado como <strong>${esc(ME)}</strong></span><button class="btn ghost" id="miOut">Salir</button></div>
+    <div class="frow"><label class="selbl">FECHA</label><select id="miFecha">${opts}</select></div>
+    <div id="miEditor"></div>`;
+  document.getElementById('miOut').onclick=doLogout;
+  const sel=document.getElementById('miFecha'); sel.value=latestPlayedFechaIdx();
+  sel.onchange=()=>renderMisEditor(+sel.value);
+  renderMisEditor(+sel.value);
+}
+function renderMisEditor(idx){
+  const box=document.getElementById('miEditor'); if(!box) return;
+  const f=state.fechas[idx]; if(!f){ box.innerHTML=''; return; }
+  const mine=MINE[f.id]||[];
+  const now=state.serverTime||Date.now();
+  let h='<div class="resbox">';
+  f.partidos.forEach((p,i)=>{
+    const started=now>=p.kickoff;
+    const cur=mine[i]||{gl:'',gv:''};
+    const gl=has(cur.gl)?cur.gl:''; const gv=has(cur.gv)?cur.gv:'';
+    h+=`<div class="editrow">
+      <span class="team">${esc(short(p.local))}</span>
+      <input class="sc" type="number" min="0" inputmode="numeric" data-i="${i}" data-s="l" value="${gl}" ${started?'disabled':''}>
+      <span class="vs">-</span>
+      <input class="sc" type="number" min="0" inputmode="numeric" data-i="${i}" data-s="v" value="${gv}" ${started?'disabled':''}>
+      <span class="team v">${esc(short(p.visita))}</span>
+      <span class="lockmark">${started?'🔒 cerrado':koLabel(p.kickoff)}</span>
+    </div>`;
+  });
+  h+='</div>';
+  const anyOpen=f.partidos.some(p=> now<p.kickoff );
+  h+=`<button class="btn" id="miSave" ${anyOpen?'':'disabled'}>Guardar mis pronósticos</button> <span id="miSaveMsg" class="muted">${anyOpen?'':'Todos los partidos de esta fecha ya empezaron.'}</span>`;
+  box.innerHTML=h;
+  if(anyOpen) document.getElementById('miSave').onclick=()=>saveMis(idx);
+}
+async function saveMis(idx){
+  const f=state.fechas[idx]; const box=document.getElementById('miEditor');
+  const preds=f.partidos.map(()=>({gl:'',gv:''}));
+  box.querySelectorAll('input.sc').forEach(inp=>{ const i=+inp.dataset.i; if(inp.dataset.s==='l') preds[i].gl=inp.value; else preds[i].gv=inp.value; });
+  const msg=document.getElementById('miSaveMsg'); msg.textContent='Guardando…';
+  const data=await api('/save','POST',{token:TOKEN, fechaId:f.id, preds});
+  if(!data.ok){ msg.textContent='✗ '+(data.error||'Error'); if(data.error && data.error.indexOf('Sesion')>=0) doLogout(); return; }
+  MINE[f.id]=data.saved;
+  const note='✓ Guardado'+((data.locked&&data.locked.length)?` (${data.locked.length} ya cerrados, no cambian)`:'');
+  await loadState(); renderMisEditor(idx);
+  const m2=document.getElementById('miSaveMsg'); if(m2) m2.textContent=note;
+}
+
+/* ============================================================
+   Contraseñas (cambiar cualquiera + registro)
+   ============================================================ */
+function renderPass(){
+  const wrap=document.getElementById('passForm'); if(!wrap) return;
+  const opts=state.roster.map(n=>`<option value="${esc(n)}">${esc(n)}</option>`).join('');
+  wrap.innerHTML=`<div class="frow"><label class="selbl">JUGADOR</label><select id="cpUser">${opts}</select></div>
+    <div class="frow"><label class="selbl">NUEVA CLAVE</label><input type="text" id="cpPass" placeholder="nueva clave"></div>
+    <button class="btn" id="cpBtn">Cambiar clave</button> <span id="cpMsg" class="muted"></span>`;
+  document.getElementById('cpBtn').onclick=doChpass;
+}
+async function doChpass(){
+  const target=document.getElementById('cpUser').value;
+  const np=document.getElementById('cpPass').value;
+  const msg=document.getElementById('cpMsg');
+  if(!np){ msg.textContent='✗ Escribe una clave'; return; }
+  msg.textContent='Cambiando…';
+  const data=await api('/chpass','POST',{target, newPassword:np});
+  if(!data.ok){ msg.textContent='✗ '+(data.error||'Error'); return; }
+  document.getElementById('cpPass').value='';
+  msg.textContent='✓ Clave de '+target+' actualizada';
+  state.pwlog=data.pwlog||state.pwlog;
+  renderPwlog();
+}
+function fmtTs(ms){ try{ return new Date(ms).toLocaleString('es-CL',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}); }catch(e){ return ''+ms; } }
+function renderPwlog(){
+  const t=document.getElementById('pwlogTbl'); if(!t) return;
+  const log=state.pwlog||[];
+  let h='<thead><tr><th>Jugador</th><th>Fecha y hora del cambio</th></tr></thead><tbody>';
+  if(!log.length) h+='<tr><td colspan="2" class="muted">Sin cambios de clave todavía.</td></tr>';
+  log.forEach(e=>{ h+=`<tr><td class="name">${esc(e.user)}</td><td>${esc(fmtTs(e.ts))}</td></tr>`; });
+  h+='</tbody>'; t.innerHTML=h;
+}
+
+/* ============================================================
+   Admin (resultados, pre-torneo, horarios, agregar partido)
+   ============================================================ */
+let adminPass='';
+function toLocalInput(ms){
+  if(!ms) return '';
+  const d=new Date(ms); const pad=n=>String(n).padStart(2,'0');
+  return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+}
+function renderAdmin(){
+  const wrap=document.getElementById('adminBody'); if(!wrap) return;
+  const fopts=state.fechas.map((f,i)=>`<option value="${i}">${esc(f.label)}</option>`).join('');
+  wrap.innerHTML=`<div class="frow"><label class="selbl">CLAVE ADMIN</label><input type="password" id="adPass" placeholder="clave admin"></div>
+    <p class="muted">Esta clave protege resultados y datos del torneo. (Distinta a la de cada jugador.)</p>
+    <h3 class="subhead">Resultados reales</h3>
+    <div class="frow"><label class="selbl">FECHA</label><select id="adResFecha">${fopts}</select></div>
+    <div id="adResEditor"></div>
+    <h3 class="subhead">Pre-torneo (FIFA, podio, clasificados)</h3>
+    <div id="adActuals"></div>
+    <h3 class="subhead">Hora de inicio de partidos</h3>
+    <p class="muted">Se muestran en tu hora local. Si alguna está mal, corrígela aquí (afecta el cierre y la revelación automáticos).</p>
+    <div class="frow"><label class="selbl">FECHA</label><select id="adKoFecha">${fopts}</select></div>
+    <div id="adKoEditor"></div>
+    <h3 class="subhead">Agregar partido (eliminatorias)</h3>
+    <div id="adAdd"></div>`;
+  const ap=document.getElementById('adPass'); ap.value=adminPass; ap.oninput=()=>adminPass=ap.value;
+  const rf=document.getElementById('adResFecha'); rf.value=latestPlayedFechaIdx(); rf.onchange=()=>renderAdResEditor(+rf.value); renderAdResEditor(+rf.value);
+  const kf=document.getElementById('adKoFecha'); kf.onchange=()=>renderAdKoEditor(+kf.value); renderAdKoEditor(+kf.value);
+  renderAdActuals(); renderAdAdd();
+}
+function renderAdResEditor(idx){
+  const box=document.getElementById('adResEditor'); if(!box) return;
+  const f=state.fechas[idx]; if(!f){ box.innerHTML=''; return; }
+  let h='<div class="resbox">';
+  f.partidos.forEach((p,i)=>{
+    const gl=has(p.rl)?p.rl:''; const gv=has(p.rv)?p.rv:'';
+    h+=`<div class="editrow"><span class="team">${esc(short(p.local))}</span>
+      <input class="sc" type="number" min="0" data-i="${i}" data-s="l" value="${gl}">
+      <span class="vs">-</span>
+      <input class="sc" type="number" min="0" data-i="${i}" data-s="v" value="${gv}">
+      <span class="team v">${esc(short(p.visita))}</span></div>`;
+  });
+  h+='</div><button class="btn" id="adResSave">Guardar resultados</button> <span id="adResMsg" class="muted"></span>';
+  box.innerHTML=h;
+  document.getElementById('adResSave').onclick=()=>saveAdRes(idx);
+}
+async function saveAdRes(idx){
+  const f=state.fechas[idx]; const box=document.getElementById('adResEditor');
+  const results=f.partidos.map(()=>({rl:'',rv:''}));
+  box.querySelectorAll('input.sc').forEach(inp=>{ const i=+inp.dataset.i; if(inp.dataset.s==='l') results[i].rl=inp.value; else results[i].rv=inp.value; });
+  const msg=document.getElementById('adResMsg'); msg.textContent='Guardando…';
+  const data=await api('/results','POST',{adminPass, fechaId:f.id, results});
+  if(!data.ok){ msg.textContent='✗ '+(data.error||'Error'); return; }
+  await loadState(); renderAdResEditor(idx);
+  const m2=document.getElementById('adResMsg'); if(m2) m2.textContent='✓ Guardado';
+}
+function renderAdActuals(){
+  const box=document.getElementById('adActuals'); if(!box) return;
+  const a=state.actuals||{clasificados:[],fifa:{},podio:['','','']}; const f=a.fifa||{};
+  const pod=a.podio||['','',''];
+  box.innerHTML=`<div class="frow"><label class="selbl" style="width:92px">CAMPEÓN</label><input type="text" id="acP0" value="${esc(pod[0]||'')}"></div>
+    <div class="frow"><label class="selbl" style="width:92px">SUBCAMP.</label><input type="text" id="acP1" value="${esc(pod[1]||'')}"></div>
+    <div class="frow"><label class="selbl" style="width:92px">TERCERO</label><input type="text" id="acP2" value="${esc(pod[2]||'')}"></div>
+    <div class="frow"><label class="selbl" style="width:92px">BOTÍN</label><input type="text" id="acBota" value="${esc(f.bota||'')}"></div>
+    <div class="frow"><label class="selbl" style="width:92px">MVP</label><input type="text" id="acMvp" value="${esc(f.mvp||'')}"></div>
+    <div class="frow"><label class="selbl" style="width:92px">ARQUERO</label><input type="text" id="acArq" value="${esc(f.arquero||'')}"></div>
+    <div class="frow"><label class="selbl" style="width:92px">JOVEN</label><input type="text" id="acJov" value="${esc(f.joven||'')}"></div>
+    <div class="frow"><label class="selbl" style="width:92px">HIGHLIGHT</label><input type="text" id="acGol" value="${esc(f.gol||'')}"></div>
+    <div class="frow" style="align-items:flex-start"><label class="selbl" style="width:92px">32 CLASIF.</label><textarea id="acClas" rows="6" style="flex:1;min-width:240px">${esc((a.clasificados||[]).join('\n'))}</textarea></div>
+    <p class="muted">Clasificados: uno por línea. Pueden ir como "A · México" o solo "México".</p>
+    <button class="btn" id="acSave">Guardar pre-torneo</button> <span id="acMsg" class="muted"></span>`;
+  document.getElementById('acSave').onclick=saveAdActuals;
+}
+async function saveAdActuals(){
+  const g=id=>document.getElementById(id).value.trim();
+  const clas=document.getElementById('acClas').value.split('\n').map(s=>s.trim()).filter(Boolean);
+  const actuals={ podio:[g('acP0'),g('acP1'),g('acP2')], fifa:{bota:g('acBota'),mvp:g('acMvp'),arquero:g('acArq'),joven:g('acJov'),gol:g('acGol')}, clasificados:clas };
+  const msg=document.getElementById('acMsg'); msg.textContent='Guardando…';
+  const data=await api('/actuals','POST',{adminPass, actuals});
+  if(!data.ok){ msg.textContent='✗ '+(data.error||'Error'); return; }
+  msg.textContent='✓ Guardado'; await loadState();
+}
+function renderAdKoEditor(idx){
+  const box=document.getElementById('adKoEditor'); if(!box) return;
+  const f=state.fechas[idx]; if(!f){ box.innerHTML=''; return; }
+  let h='<div class="resbox">';
+  f.partidos.forEach((p,i)=>{
+    h+=`<div class="editrow"><span class="team" style="min-width:155px">${esc(short(p.local))} vs ${esc(short(p.visita))}</span>
+      <input type="datetime-local" data-i="${i}" value="${toLocalInput(p.kickoff)}">
+      <button class="btn ghost" data-ko="${i}">Guardar hora</button></div>`;
+  });
+  h+='</div><span id="adKoMsg" class="muted"></span>';
+  box.innerHTML=h;
+  box.querySelectorAll('button[data-ko]').forEach(b=>b.onclick=()=>saveAdKo(idx, +b.dataset.ko));
+}
+async function saveAdKo(idx, i){
+  const f=state.fechas[idx]; const box=document.getElementById('adKoEditor');
+  const inp=box.querySelector(`input[data-i="${i}"]`);
+  const ms=inp.value?new Date(inp.value).getTime():0;
+  const msg=document.getElementById('adKoMsg'); msg.textContent='Guardando…';
+  const data=await api('/kickoff','POST',{adminPass, fechaId:f.id, matchIdx:i, kickoff:ms});
+  if(!data.ok){ msg.textContent='✗ '+(data.error||'Error'); return; }
+  await loadState(); renderAdKoEditor(idx);
+  const m2=document.getElementById('adKoMsg'); if(m2) m2.textContent='✓ Hora actualizada';
+}
+function renderAdAdd(){
+  const box=document.getElementById('adAdd'); if(!box) return;
+  box.innerHTML=`<div class="frow"><label class="selbl">FASE</label><select id="amFase"><option value="grupos">Grupos</option><option value="eliminatorias">Eliminatorias</option></select></div>
+    <div class="frow"><label class="selbl">ETIQUETA</label><input type="text" id="amLabel" placeholder="Ej: Octavos · Sábado 28"></div>
+    <div class="frow"><label class="selbl">LOCAL</label><input type="text" id="amLocal" placeholder="Equipo local"></div>
+    <div class="frow"><label class="selbl">VISITA</label><input type="text" id="amVisita" placeholder="Equipo visita"></div>
+    <div class="frow"><label class="selbl">PUNTOS x</label><input type="number" id="amMult" value="1" min="1" style="width:64px"></div>
+    <div class="frow"><label class="selbl">HORA</label><input type="datetime-local" id="amKo"></div>
+    <button class="btn" id="amBtn">Agregar partido</button> <span id="amMsg" class="muted"></span>`;
+  document.getElementById('amBtn').onclick=saveAdAdd;
+}
+async function saveAdAdd(){
+  const g=id=>document.getElementById(id).value.trim();
+  const ko=document.getElementById('amKo').value;
+  const body={ adminPass, fase:document.getElementById('amFase').value, label:g('amLabel'), local:g('amLocal'), visita:g('amVisita'), mult:+document.getElementById('amMult').value||1, kickoff: ko?new Date(ko).getTime():Date.now() };
+  const msg=document.getElementById('amMsg');
+  if(!body.label||!body.local||!body.visita){ msg.textContent='✗ Faltan datos'; return; }
+  msg.textContent='Agregando…';
+  const data=await api('/addmatch','POST',body);
+  if(!data.ok){ msg.textContent='✗ '+(data.error||'Error'); return; }
+  await loadState(); renderAdmin();
+  const m2=document.getElementById('amMsg'); if(m2) m2.textContent='✓ Partido agregado';
+}
+
+/* ---------- tabs ---------- */
+document.getElementById('tabs').addEventListener('click',e=>{
+  const b=e.target.closest('.tab'); if(!b) return;
   activateTab(b.dataset.tab);
+  if(b.dataset.tab==='mis') renderMis();
+  else if(b.dataset.tab==='pass'){ renderPass(); renderPwlog(); }
+  else if(b.dataset.tab==='admin') renderAdmin();
 });
 
-/* ---------- desbloqueo ---------- */
-function unlockAdmin(){
-  const inp=document.getElementById('adminPass');
-  const err=document.getElementById('adminErr');
-  if(!inp) return;
-  if(inp.value===ADMIN_PASS){
-    adminUnlocked=true;
-    document.getElementById('adminLock').style.display='none';
-    document.getElementById('adminContent').style.display='block';
-    if(err) err.style.display='none';
-    adminInit();
-  }else{
-    if(err) err.style.display='block';
-    inp.value=''; inp.focus();
-  }
-}
-
-/* ---------- init del panel (idempotente) ---------- */
-function adminInit(){
-  if(adminReady) return;
-  adminReady=true;
-
-  // sub-pestañas del panel
-  const anav=document.getElementById('adminTabs');
-  anav.addEventListener('click',e=>{
-    const b=e.target.closest('.tab'); if(!b) return;
-    anav.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
-    b.classList.add('active');
-    document.querySelectorAll('.apanel').forEach(p=>p.classList.remove('active'));
-    document.getElementById('apanel-'+b.dataset.atab).classList.add('active');
-  });
-
-  fillFechaSelect('admResFecha', adminRenderRes);
-  fillFechaSelect('admPredFecha', adminRenderPred);
-  adminRenderPre();
-  adminBuildAdd();
-
-  document.getElementById('btnDescargar').addEventListener('click', descargarArchivo);
-}
-
-/* ---------- selector de fecha (default = última jugada) ---------- */
-function fillFechaSelect(id, renderFn){
-  const s=document.getElementById(id); if(!s) return;
-  s.innerHTML='';
-  state.fechas.forEach((f,i)=>{ const o=el('option',null,f.label); o.value=i; s.appendChild(o); });
-  const def=(typeof latestPlayedFechaIdx==='function')?latestPlayedFechaIdx():(state.fechas.length-1);
-  s.value=def;
-  s.onchange=()=>renderFn(+s.value);
-  renderFn(def);
-}
-
-/* ---------- editor de RESULTADOS ---------- */
-function adminRenderRes(fi){
-  const box=document.getElementById('admResBody'); box.innerHTML='';
-  const f=state.fechas[fi]; if(!f) return;
-  const wrap=el('div','resbox');
-  f.partidos.forEach(p=>{
-    const row=el('div','adm-row');
-    const tl=el('span','adm-team',p.local);
-    const il=el('input','adm-score'); il.type='number'; il.min=0; il.placeholder='–'; il.value=has(p.rl)?p.rl:'';
-    const dash=el('span','adm-dash','–');
-    const iv=el('input','adm-score'); iv.type='number'; iv.min=0; iv.placeholder='–'; iv.value=has(p.rv)?p.rv:'';
-    const tv=el('span','adm-team adm-team-v',p.visita);
-    il.addEventListener('input',()=>{ p.rl = il.value===''?'':(+il.value); recalcAll(); });
-    iv.addEventListener('input',()=>{ p.rv = iv.value===''?'':(+iv.value); recalcAll(); });
-    row.appendChild(tl); row.appendChild(il); row.appendChild(dash); row.appendChild(iv); row.appendChild(tv);
-    wrap.appendChild(row);
-  });
-  box.appendChild(wrap);
-}
-
-/* ---------- editor de PRONÓSTICOS ---------- */
-function ensurePred(f, player){
-  if(!f.preds) f.preds={};
-  if(!Array.isArray(f.preds[player])) f.preds[player]=[];
-  while(f.preds[player].length < f.partidos.length) f.preds[player].push({gl:'',gv:''});
-  return f.preds[player];
-}
-function adminRenderPred(fi){
-  const box=document.getElementById('admPredBody'); box.innerHTML='';
-  const f=state.fechas[fi]; if(!f) return;
-  const tbl=el('table','tbl');
-  const thead=el('thead'); const htr=el('tr');
-  htr.appendChild(el('th',null,'Jugador'));
-  f.partidos.forEach(p=>{ htr.appendChild(el('th',null, short(p.local)+'–'+short(p.visita))); });
-  thead.appendChild(htr); tbl.appendChild(thead);
-  const tb=el('tbody');
-  state.roster.slice().sort((a,b)=>a.localeCompare(b)).forEach(name=>{
-    const tr=el('tr');
-    tr.appendChild(el('td',null,name));
-    f.partidos.forEach((p,pi)=>{
-      const td=el('td');
-      const arr=(f.preds&&f.preds[name])||[];
-      const pr=arr[pi]||{gl:'',gv:''};   // lectura con respaldo: ver no muta
-      const cell=el('span','adm-pred-cell');
-      const ig=el('input','adm-mini'); ig.type='number'; ig.min=0; ig.placeholder='–'; ig.value=has(pr.gl)?pr.gl:'';
-      const sep=el('span','adm-pred-sep','–');
-      const iv=el('input','adm-mini'); iv.type='number'; iv.min=0; iv.placeholder='–'; iv.value=has(pr.gv)?pr.gv:'';
-      ig.addEventListener('input',()=>{ const a=ensurePred(f,name); a[pi].gl = ig.value===''?'':(+ig.value); recalcAll(); });
-      iv.addEventListener('input',()=>{ const a=ensurePred(f,name); a[pi].gv = iv.value===''?'':(+iv.value); recalcAll(); });
-      cell.appendChild(ig); cell.appendChild(sep); cell.appendChild(iv);
-      td.appendChild(cell); tr.appendChild(td);
-    });
-    tb.appendChild(tr);
-  });
-  tbl.appendChild(tb); box.appendChild(tbl);
-}
-
-/* ---------- editor PRE-TORNEO (resultados reales) ---------- */
-function adminRenderPre(){
-  const box=document.getElementById('apanel-pre'); box.innerHTML='';
-  box.appendChild(el('p','muted','Resultados reales del torneo. Esto define los puntos de los pronósticos pre-torneo.'));
-
-  // FIFA
-  const fifaDefs=[['bota','Bota de Oro (goleador)'],['mvp','Balón de Oro (MVP)'],['arquero','Guante de Oro (arquero)'],['joven','Mejor jugador joven'],['gol','Gol del torneo']];
-  box.appendChild(el('div','fch','Premios FIFA'));
-  const fg=el('div','adm-fifa');
-  fifaDefs.forEach(([k,lab])=>{
-    const w=el('label');
-    w.appendChild(el('div','adm-lbl',lab));
-    const i=el('input','adm-text'); i.type='text'; i.value=state.actuals.fifa[k]||'';
-    i.addEventListener('change',()=>{ state.actuals.fifa[k]=i.value.trim(); recalcAll(); });
-    w.appendChild(i); fg.appendChild(w);
-  });
-  box.appendChild(fg);
-
-  // Podio
-  box.appendChild(el('div','fch','Podio'));
-  const podDefs=['1° Campeón','2° Subcampeón','3° Tercer lugar'];
-  const pg=el('div','adm-fifa');
-  podDefs.forEach((lab,idx)=>{
-    const w=el('label');
-    w.appendChild(el('div','adm-lbl',lab));
-    const i=el('input','adm-text'); i.type='text'; i.value=state.actuals.podio[idx]||'';
-    i.addEventListener('change',()=>{ state.actuals.podio[idx]=i.value.trim(); recalcAll(); });
-    w.appendChild(i); pg.appendChild(w);
-  });
-  box.appendChild(pg);
-
-  // Clasificados (checklist por grupo)
-  const head=el('div','fch','Clasificados a octavos');
-  box.appendChild(head);
-  const counter=el('p','muted'); counter.id='clasCount'; box.appendChild(counter);
-  const wrap=el('div','clas-wrap');
-  Object.keys(GRUPOS).forEach(g=>{
-    const gb=el('div','clas-group');
-    gb.appendChild(el('div','clas-gtitle','Grupo '+g));
-    GRUPOS[g].forEach(team=>{
-      const lab=el('label','clas-item');
-      const cb=el('input'); cb.type='checkbox';
-      cb.checked = state.actuals.clasificados.some(t=>norm(t)===norm(team));
-      cb.addEventListener('change',()=>{
-        const arr=state.actuals.clasificados;
-        if(cb.checked){ if(!arr.some(t=>norm(t)===norm(team))) arr.push(team); }
-        else{ state.actuals.clasificados=arr.filter(t=>norm(t)!==norm(team)); }
-        updateClasCount(); recalcAll();
-      });
-      lab.appendChild(cb); lab.appendChild(document.createTextNode(team));
-      gb.appendChild(lab);
-    });
-    wrap.appendChild(gb);
-  });
-  box.appendChild(wrap);
-  updateClasCount();
-}
-function updateClasCount(){
-  const c=document.getElementById('clasCount');
-  if(c) c.textContent='Marcados: '+state.actuals.clasificados.length+' de 32';
-}
-
-/* ---------- AGREGAR PARTIDO (eliminatorias) ---------- */
-function adminBuildAdd(){
-  const btn=document.getElementById('btnAddPartido'); if(!btn) return;
-  btn.addEventListener('click',()=>{
-    const fase=document.getElementById('addFase').value;
-    const label=document.getElementById('addLabel').value.trim();
-    const local=document.getElementById('addLocal').value.trim();
-    const visita=document.getElementById('addVisita').value.trim();
-    const mult=parseInt(document.getElementById('addMult').value,10)||1;
-    if(!label||!local||!visita){ alert('Completa fecha, local y visita.'); return; }
-    let f=state.fechas.find(x=>x.label===label && (x.fase||'grupos')===fase);
-    if(!f){ f={id:'x'+Date.now(), label:label, fase:fase, partidos:[], preds:{}}; state.fechas.push(f); }
-    f.partidos.push({local:local, visita:visita, mult:mult, rl:'', rv:''});
-    document.getElementById('addLocal').value='';
-    document.getElementById('addVisita').value='';
-    fillFechaSelect('admResFecha', adminRenderRes);
-    fillFechaSelect('admPredFecha', adminRenderPred);
-    recalcAll();
-    alert('Partido agregado: '+local+' vs '+visita+'  ('+label+')');
-  });
-}
-
-/* ---------- descargar archivo actualizado ---------- */
-async function descargarArchivo(){
-  const btn=document.getElementById('btnDescargar');
-  const orig=btn.textContent;
-  btn.textContent='Generando…'; btn.disabled=true;
-  try{
-    const resp=await fetch(window.location.href,{cache:'no-store'});
-    if(!resp.ok) throw new Error('HTTP '+resp.status);
-    const html=await resp.text();
-    const i1=html.indexOf(M1), i2=html.indexOf(M2);
-    if(i1<0 || i2<0 || i2<i1) throw new Error('no encontré los marcadores DATA');
-    const payload='const DATA = '+JSON.stringify(state).replace(/</g,'\\u003c')+';';
-    const nuevo = html.slice(0,i1) + M1 + payload + M2 + html.slice(i2+M2.length);
-    triggerDownload(nuevo,'text/html','cholobet.html');
-    btn.textContent='✓ Descargado'; 
-    setTimeout(()=>{ btn.textContent=orig; btn.disabled=false; },2500);
-  }catch(err){
-    btn.textContent=orig; btn.disabled=false;
-    alert('No pude regenerar el archivo completo. Suele pasar si abriste el archivo con doble clic (file://) en vez de desde el sitio publicado.\n\nTe descargo solo los datos como respaldo (cholobet_datos.txt): si necesitas, pégalos en el archivo reemplazando lo que hay entre los marcadores DATA.\n\nDetalle: '+err.message);
-    triggerDownload('const DATA = '+JSON.stringify(state).replace(/</g,'\\u003c')+';','text/plain','cholobet_datos.txt');
-  }
-}
-function triggerDownload(content,type,filename){
-  const blob=new Blob([content],{type:type+';charset=utf-8'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.href=url; a.download=filename;
-  document.body.appendChild(a); a.click();
-  setTimeout(()=>{ document.body.removeChild(a); URL.revokeObjectURL(url); },120);
-}
-
-/* ---------- recálculo de las vistas públicas ---------- */
-function recalcAll(){
-  renderStandings();
-  renderPre();
-  renderResultados();
-  const fs=document.getElementById('fechaSel'); if(fs && fs.value!=='') renderFecha(+fs.value);
-  const us=document.getElementById('userSel'); if(us && us.value!=='') renderUser(us.value);
-}
-
-/* ---------- listeners de desbloqueo ---------- */
-(function(){
-  const enter=document.getElementById('adminEnter');
-  const pass=document.getElementById('adminPass');
-  if(enter) enter.addEventListener('click',unlockAdmin);
-  if(pass) pass.addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); unlockAdmin(); } });
-})();
-
 /* ---------- init ---------- */
-renderStandings();
-renderPre();
-renderFechaSel();
-renderUserSel();
-renderResultados();
-
+bootstrap();
 </script>
 </body>
 </html>
