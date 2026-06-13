@@ -355,8 +355,8 @@ input.sc:disabled{background:var(--paper2);color:var(--ink-soft)}
 /* ============================================================
    CholoBet · cliente sincronizado (Cloudflare KV + Worker)
    ============================================================ */
-// >>> PON AQUI la URL de tu Worker (termina en .workers.dev), sin barra final:
-const API_BASE = 'https://cholobet-api.TU-SUBDOMINIO.workers.dev';
+// API same-origin when deployed in MyApp/Coolify. Override from the console if needed.
+const API_BASE = window.CHOLOBET_API_BASE || '';
 
 let state = {roster:[], pretorneo:{}, fechas:[], actuals:{clasificados:[],fifa:{},podio:['','','']}, pwlog:[], serverTime:0};
 let MINE = {};        // mis pronosticos (privado)
@@ -651,7 +651,7 @@ function renderPublic(){
   renderStandings(); renderPre(); renderFechaSel(); renderUserSel(); renderResultados(); renderPwlog();
 }
 async function loadState(){
-  if(!API_BASE || API_BASE.indexOf('TU-SUBDOMINIO')>=0){
+  if(API_BASE.indexOf('TU-SUBDOMINIO')>=0){
     setBanner('⚠ Falta poner la dirección del servidor (API_BASE) dentro del archivo index.html.','err'); bootError=true; return;
   }
   const data=await api('/state');

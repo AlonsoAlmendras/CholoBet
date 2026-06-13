@@ -1,0 +1,21 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      ADMIN_PASS: ${ADMIN_PASS:-cholobet2026}
+      DATA_PATH: /data/cholobet-kv.json
+      PORT: 3000
+    volumes:
+      - cholobet_data:/data
+    expose:
+      - "3000"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3000/healthz"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  cholobet_data:
