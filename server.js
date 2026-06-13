@@ -107,6 +107,9 @@ async function handle(request) {
   if (url.pathname === "/healthz") {
     return new Response("ok", { headers: { "Content-Type": "text/plain; charset=utf-8" } });
   }
+  if (url.pathname === "/favicon.ico") {
+    return new Response(null, { status: 204 });
+  }
   if (apiRoutes.has(url.pathname)) {
     return worker.fetch(request, env);
   }
